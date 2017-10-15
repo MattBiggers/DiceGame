@@ -48,46 +48,9 @@ namespace DiceGame
         /// Toss the dice!
         /// </summary>
         /// <returns>The sum of all the dice thrown.</returns>
-        public int Throw()
+        public Throw Throw()
         {
-            int value = 0;
-            foreach(Die die in this.Dice)
-            {
-                value += die.Roll();
-            }
-
-            return value;
-        }
-
-        /// <summary>
-        /// Toss the dice!
-        /// </summary>
-        /// <returns>Each roll individually for comparison.</returns>
-        public List<int> ThrowEach()
-        {
-            List<int> throws = new List<int>();
-            foreach(Die die in this.Dice)
-            {
-                throws.Add(die.Roll());
-            }
-
-            return throws;
-        }
-
-        /// <summary>
-        /// Toss the dice and take the highest individual roll.
-        /// </summary>
-        /// <returns>The value of the highest dice roll.</returns>
-        public int GetHighestRoll()
-        {
-            int highest = 0;
-            foreach(Die die in this.Dice)
-            {
-                int roll = die.Roll();
-                if (roll > highest) highest = roll;
-            }
-
-            return highest;
+            return new DiceGame.Throw(this);
         }
     }
 }
